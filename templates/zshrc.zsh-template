@@ -62,7 +62,10 @@ ZSH_THEME="robbyrussell"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
+plugins=(git
+    docker
+    golang
+)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -85,6 +88,10 @@ source $ZSH/oh-my-zsh.sh
 
 # ssh
 # export SSH_KEY_PATH="~/.ssh/rsa_id"
+export LANG=en_US.UTF-8
+export PATH=$PATH:/opt/TurboVNC/bin:$HOME/.local/bin:/usr/local/go/bin
+export TIME_STYLE='+%Y-%m-%d %H:%M:%S'
+export GOPATH=$HOME/code/go
 
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
@@ -94,3 +101,33 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+alias l='ls -lh'
+alias ll='ls -alh'
+alias hddtemp="sudo hddtemp /dev/sda;sudo hddtemp /dev/sdb;sudo hddtemp /dev/sdc"
+alias 7z="7zr"
+
+# About keyboard
+bindkey '\e[1~' beginning-of-line
+bindkey '\e[4~' end-of-line
+# Fix numeric keypad
+# 0 . Enter
+bindkey -s "^[Op" "0"
+bindkey -s "^[On" "."
+bindkey -s "^[OM" "^M"
+# 1 2 3
+bindkey -s "^[Oq" "1"
+bindkey -s "^[Or" "2"
+bindkey -s "^[Os" "3"
+# 4 5 6
+bindkey -s "^[Ot" "4"
+bindkey -s "^[Ou" "5"
+bindkey -s "^[Ov" "6"
+# 7 8 9
+bindkey -s "^[Ow" "7"
+bindkey -s "^[Ox" "8"
+bindkey -s "^[Oy" "9"
+# + - * /
+bindkey -s "^[Ol" "+"
+bindkey -s "^[Om" "-"
+bindkey -s "^[Oj" "*"
+bindkey -s "^[Oo" "/"
